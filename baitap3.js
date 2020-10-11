@@ -46,10 +46,33 @@ function countFrequency(array){
 }
 var result5 = countFrequency(b);
 console.log('Tần suất lớn nhất của mảng: ' + result5)
-//  25. Cho một mảng là một tập các số nguyên dương, hãy tạo một mảng b là tập hợp bình phương của các số trong mảng a
+/*  25. Cho một mảng là một tập các số nguyên dương, hãy tạo một mảng b là tập hợp bình phương của các số trong mảng a*/
 d = [1,2,3,2,3,4,6,7];
 var result7 = d.map((a) => Math.pow(a,2));
 console.log(result7);
+/*  27 Cho một mảng là một tập hợp các học viên trong lớp REACTJS, mảng là một tập hợp object của học viên gồm 3 thông tin: id, firstName, lastName, và age. Hãy đưa tên và họ về chuẩn tên với ký tự đầu tiên của tên Viết Hoa và tìm tất cả học viên có tên tồn tại chữ cái “a” hoặc “A” và tên dài hơn hoặc bằng 3 ký tự.*/
+// students = [
+//     {
+//         id: "T3HXX1",
+//         firstName: "NgAN",
+//         lastName: "Duong Thuy"
+//     },
+//     {
+//         id: "T3HXX2",
+//         firstName: "Ha",
+//         lastName: "Do Thi Thu"
+//     },
+//     {
+//         id: "T3HXX5",
+//         firstName: "Minh",
+//         lastName: "Nguyen Nhat"
+//     }
+// ]
+//  var result8 = students.map((item) => {
+//     item.firstName = standarName(item.firstName);
+//     item.lastName = standarName(item.lastName);
+//     return item;
+//  }
 /*28. Cho một mảng là một tập hợp các học viên trong lớp REACTJS, mảng là một tập hợp object của học viên gồm 3 thông tin: id, firstName, lastName, và age. Hãy tìm tất cả học sinh cá biệt của lớp biết rằng học sinh cá biệt có họ là “Do”.*/ 
 students = [
     {
@@ -68,8 +91,53 @@ students = [
         lastName: "Nguyen Nhat"
     }
 ]
+function standarName(str){
+    str = str.trim();
+    str = str.toLowerCase();
+    var str = str.charAt(0).toUpperCase() + str.toLowerCase().slice(1)
+    var i = 0;
+    while(i < str.length){
+        if(str[i] == str[i+1] && str[i] == ' '){
+            str = str.substr(0,i+1) + str.substr(i+2, str.length);
+        }
+        else{
+            i++;
+        }
+    }
+    for (var i = 0; i < str.length; i++) {
+        if (str[i] == " ") {
+            str = str.slice(0, i + 1) + str.charAt(i + 1).toUpperCase() + str.slice(i + 2)
+        }
+    }
+    return str;
+ }
+//  28
  var result9 = students.filter((item) => {
     item.lastName = standarName(item.lastName);
-    return item.lastName.split(' ')[1] == 'Do';
+    return item.lastName.split(' ')[0] == 'Do';
  })
  console.log(result9);
+ /* 30. Cho một mảng là một tập các số nguyên dương, tìm số lớn thứ nhì trong mảng, không có thì in ra -1?*/
+abc = [1,2,3,4,5,6,7,8,9,9,9,8,7,6,5,4,3,2,1];
+function maxTwo(arr){
+   var result = arr.filter(item => item < Math.max(...arr));
+   result.sort((a,b) => a -b);
+   return result.length != 0 ? result[result.length - 1] : -1;
+}
+console.log(maxTwo(abc))
+//  31. Cho một mảng là một tập các số nguyên dương và một số nguyên dương k, tìm xem trong mảng có tồn tại 3 số có tổng bằng k? (1s) , length of array.
+array = [1,2,3,4,5,6,7,8,9,9,9,8,7,6,5,4,3,2,1];
+function checkTotalThreeArray(arr,number){
+   for(var i = 0; i < arr.length - 2; i++){
+       for( var j = i+1; j < arr.length - 1; j++){
+           for( var k = j+1; k < arr.length; k++){
+               if( arr[i] + arr[j] + arr[k] == number){
+                   return 'Yes';
+                   break;
+               }
+           }
+       }
+   }
+   return 'No';
+}
+console.log(checkTotalThreeArray(array,27))
