@@ -46,6 +46,23 @@ function countFrequency(array){
 }
 var result5 = countFrequency(b);
 console.log('Tần suất lớn nhất của mảng: ' + result5)
+/* 24. Cho một mảng là một tập các số nguyên dương, lọc ra một bảng b gồm tất cả các số là số nguyên tố? (Dùng filter)*/
+c = [1,2,3,2,3,4,6,7];
+function checkSNT(number){
+   if(number < 2) {
+       return false;
+   }
+   for( var i = 2; i <= Math.sqrt(number); i++){
+       if(number % i == 0){
+           return false;
+           break;
+       }
+   }
+   return true;
+}
+var result6 = c.filter(checkSNT);
+console.log(result6);
+
 /*  25. Cho một mảng là một tập các số nguyên dương, hãy tạo một mảng b là tập hợp bình phương của các số trong mảng a*/
 d = [1,2,3,2,3,4,6,7];
 var result7 = d.map((a) => Math.pow(a,2));
