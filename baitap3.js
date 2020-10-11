@@ -51,28 +51,28 @@ d = [1,2,3,2,3,4,6,7];
 var result7 = d.map((a) => Math.pow(a,2));
 console.log(result7);
 /*  27 Cho một mảng là một tập hợp các học viên trong lớp REACTJS, mảng là một tập hợp object của học viên gồm 3 thông tin: id, firstName, lastName, và age. Hãy đưa tên và họ về chuẩn tên với ký tự đầu tiên của tên Viết Hoa và tìm tất cả học viên có tên tồn tại chữ cái “a” hoặc “A” và tên dài hơn hoặc bằng 3 ký tự.*/
-// students = [
-//     {
-//         id: "T3HXX1",
-//         firstName: "NgAN",
-//         lastName: "Duong Thuy"
-//     },
-//     {
-//         id: "T3HXX2",
-//         firstName: "Ha",
-//         lastName: "Do Thi Thu"
-//     },
-//     {
-//         id: "T3HXX5",
-//         firstName: "Minh",
-//         lastName: "Nguyen Nhat"
-//     }
-// ]
-//  var result8 = students.map((item) => {
-//     item.firstName = standarName(item.firstName);
-//     item.lastName = standarName(item.lastName);
-//     return item;
-//  }
+students = [
+    {
+        id: "T3HXX1",
+        firstName: "NgAN",
+        lastName: "Duong Thuy"
+    },
+    {
+        id: "T3HXX2",
+        firstName: "Ha",
+        lastName: "Do Thi Thu"
+    },
+    {
+        id: "T3HXX5",
+        firstName: "Minh",
+        lastName: "Nguyen Nhat"
+    }
+]
+ var result8 = students.map((item) => {
+    item.firstName = standarName(item.firstName);
+    item.lastName = standarName(item.lastName);
+    return item;
+ }).filter(item => item.firstName.length >= 3 && (item.firstName.indexOf('a') != -1 || item.firstName.indexOf('A') != -1));
 /*28. Cho một mảng là một tập hợp các học viên trong lớp REACTJS, mảng là một tập hợp object của học viên gồm 3 thông tin: id, firstName, lastName, và age. Hãy tìm tất cả học sinh cá biệt của lớp biết rằng học sinh cá biệt có họ là “Do”.*/ 
 students = [
     {
