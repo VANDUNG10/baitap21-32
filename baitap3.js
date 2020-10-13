@@ -142,19 +142,3 @@ function maxTwo(arr){
    return result.length != 0 ? result[result.length - 1] : -1;
 }
 console.log(maxTwo(abc))
-//  31. Cho một mảng là một tập các số nguyên dương và một số nguyên dương k, tìm xem trong mảng có tồn tại 3 số có tổng bằng k? (1s) , length of array.
-array = [1,2,3,4,5,6,7,8,9,9,9,8,7,6,5,4,3,2,1];
-function checkTotalThreeArray(arr,number){
-   for(var i = 0; i < arr.length - 2; i++){
-       for( var j = i+1; j < arr.length - 1; j++){
-           for( var k = j+1; k < arr.length; k++){
-               if( arr[i] + arr[j] + arr[k] == number){
-                   return 'Yes';
-                   break;
-               }
-           }
-       }
-   }
-   return 'No';
-}
-console.log(checkTotalThreeArray(array,27))
